@@ -1,0 +1,160 @@
+/* Estilização Geral */
+
+h1, h2 {
+    text-align: center;
+    color: #0CB0F0;
+}
+
+/* Estilo da seção de produtos */
+.produtos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    
+}
+
+.card-produto {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    
+}
+
+.card-produto h3 {
+    color: #0CB0F0;
+}
+
+.card-produto p {
+    color: #FFFFFF;
+}
+
+.card-produto .preco {
+    color: #8C0CF0;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card-produto .btn-comprar {
+    display: inline-block;
+    background: #0CB0F0;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+    
+}
+
+.card {
+    width: 18rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1C1C1C;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    margin-left: 10%;
+    box-shadow: 0 4px 8px #8C0CF0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #8C0CF0;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 0 0 10px 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #0CB0F0;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #E0E0E0;
+    margin-bottom: 15px;
+}
+
+/* Para colocar 3 cards lado a lado */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+.btn-comprar {
+    background-color: #8C0CF0;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #0CB0F0;
+}
+
+.btn-comprar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.5);
+}
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .produtos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar-loja {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 20px 0;
+        box-shadow: none;
+    }
+
+    .footer-loja {
+        padding: 10px;
+    }
+
+    .filtro-produto {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filtro-produto select, .filtro-produto input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,113 @@
+/* Estilos gerais */
+
+.container {
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(140, 12, 240, 0.5);
+    width: 50%;
+    text-align: center;
+}
+
+h1 {
+    color: #8C0CF0;
+    margin-bottom: 20px;
+}
+
+/* Resumo da compra */
+#resumo-compra {
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(12, 176, 240, 0.5);
+}
+
+.titulo-resumo {
+    color: #0CB0F0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.item{
+    color: #0CB0F0;
+    text-align: justify;
+}
+
+.lista-compra {
+    list-style: none;
+    padding: 0;
+}
+
+.item-compra {
+    padding: 10px;
+    border-bottom: 1px solid #8C0CF0;
+}
+
+.preco {
+    color: #0CB0F0;
+    font-weight: bold;
+}
+
+.total-compra {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #E000B9;
+}
+
+.total{
+    color: #8C0CF0;
+}
+/* Formulário de pagamento */
+.formulario {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #0CB0F0;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #8C0CF0;
+    border-radius: 5px;
+    background: #222;
+    color: #ffffff;
+}
+
+.botao-comprar {
+    background: #8C0CF0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.botao-comprar:hover {
+    background: #0CB0F0;
+}
+
+.btn-finalizar{
+    background: #0CB0F0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.dados-pagamento{
+    color: #0CB0F0;
+}
+

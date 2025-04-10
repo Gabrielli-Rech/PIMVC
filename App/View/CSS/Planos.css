@@ -1,0 +1,138 @@
+/* Estilização Geral */
+
+h1, h2 {
+    text-align: center;
+    color: #0CB0F0;
+}
+
+/* Estilo da seção de planos */
+.planos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.card h3 {
+    color: #0CB0F0;
+}
+
+.beneficios {
+    list-style: none;
+    padding: 0;
+    
+}
+
+.beneficios li {
+    padding: 5px 0;
+    border-bottom: 1px solid #000000;
+    
+}
+
+.btn-plano {
+    display: inline-block;
+    background: #0CB0F0;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+}
+
+/* Seção de Personalização */
+.personalizar-plano {
+    background: #000000;
+    padding: 20px;
+    margin: 30px auto;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+    color: #ffffff;
+}
+
+.personalizar-plano label {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.btn-custom {
+    background: #8C0CF0;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+}
+
+.btn-custom:hover {
+    background: #0CB0F0;
+}
+
+/* Seção de Detalhes dos Planos */
+.detalhes-planos {
+    padding: 20px;
+    background: #000000;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+    color: #ffffff;
+}
+
+.detalhes-planos ul {
+    list-style: none;
+    padding: 0;
+    color: #0CB0F0;
+}
+
+.detalhes-planos li {
+    padding: 10px 0;
+    color: #ffffff;
+}
+
+/* Perguntas Frequentes */
+.faq {
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.faq details {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.faq summary {
+    font-weight: bold;
+    color: #0CB0F0;
+}
+
+.faq p {
+    margin: 5px 0 0 10px;
+    color: #ffffff;
+}

@@ -1,0 +1,49 @@
+.treino-inferior {
+    text-align: center;
+    padding: 40px;
+    color: #0CB0F0;
+}
+
+.beneficios-container, .treinos-container {
+    background: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #8C0CF0;
+    margin: 20px auto;
+    width: 80%;
+    color: #ffffff;
+}
+
+.beneficios-lista {
+    list-style: none;
+    padding: 0;
+    color: #0CB0F0;
+}
+
+.beneficios-lista li {
+    padding: 10px 0;
+    color: #ffffff;
+}
+
+.treino-card {
+    background: #111;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0CB0F0;
+    width: 60%;
+}
+
+.treino-card h3 {
+    color: #0CB0F0;
+}
+
+.treino-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.treino-card li {
+    padding: 5px 0;
+    color: #ffffff;
+}

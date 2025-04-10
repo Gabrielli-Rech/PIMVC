@@ -1,0 +1,295 @@
+/* Cores Titan Fit */
+/*:root {
+    --azul-escuro: #002CDB;
+    --roxo-escuro: #6200DB;
+    --azul-claro: #0CB0F0;
+    --roxo-claro: #8C0CF0;
+    --branco: #FFFFFF;
+}
+*/
+/* Estilização Geral */
+body{
+    background-color: black;
+}
+
+.img-home {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que as imagens quebrem linha em telas menores */
+    gap: 40px; /* Reduzi um pouco o espaçamento para melhor adaptação */
+    margin: 50px 20px;
+}
+
+.img-home img {
+    width: 100%;
+    max-width: 300px; /* Mantém o tamanho máximo */
+    height: auto; /* Mantém a proporção */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .img-home {
+        gap: 20px; /* Reduz ainda mais o espaçamento */
+    }
+
+    .img-home img {
+        max-width: 90%; /* Ocupa quase toda a tela sem ultrapassar */
+    }
+}
+
+
+/* Estilização do título */
+.h1-Plano {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8C0CF0; /* Azul claro */
+    margin-bottom: 20px;
+}
+
+/* Container dos planos */
+.planos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Card dos planos */
+.card {
+    background: #000000;
+    color: white;
+    width: 280px;
+    border-radius: 15px;
+    border-color: #0CB0F0;
+    box-shadow: 0 4px 8px #8C0CF0;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px #8C0CF0;
+    border-color: #0CB0F0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Título do plano */
+.card h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #0CB0F0; /* Azul claro */
+    margin-bottom: 10px;
+}
+
+/* Texto do plano */
+.card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Lista de benefícios */
+.beneficios {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.beneficios li {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.beneficios li:last-child {
+    border-bottom: none;
+}
+
+/* Botão de assinatura */
+.btn-plano {
+    display: inline-block;
+    background-color: #8C0CF0; /* Roxo claro */
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-plano:hover {
+    background-color: #6200DB; /* Roxo escuro */
+    transform: scale(1.1);
+}
+
+/* Em CSS/style.css */
+.lotacao-box {
+    background-color: #0CB0F0;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    font-family: 'Poppins', Arial, sans-serif;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  
+  #status-lotacao {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }  
+
+
+.entrar{
+    background-color: #6200DB;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Sobre nós */
+.sobre-nos {
+    text-align: justify;
+    padding: 20px;
+    line-height: 1.5;
+    color: #FFFFFF;
+}
+
+.sobre-nos h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.sobre-nos p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background: none !important; /* Remove o fundo */
+    border: none; /* Remove qualquer borda */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none !important; /* Remove a imagem padrão */
+    width: 40px; /* Ajuste o tamanho das setas */
+    height: 40px;
+    border: 2px solid white; /* Define a cor e espessura do contorno */
+    border-radius: 50%; /* Deixa as setas circulares */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-left: 3px solid white; /* Define a seta */
+    border-bottom: 3px solid white;
+}
+
+.carousel-control-prev-icon::before {
+    transform: rotate(45deg);
+    left: 12px;
+}
+
+.carousel-control-next-icon::before {
+    transform: rotate(-135deg);
+    right: 12px;
+}
+
+
+/* Estilos para a Navbar */
+.navbar navbar-expand-lg{
+    background: #6200DB;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.navbar img {
+    height: 50px;
+}
+
+.navbar-toggler {
+    border-color: #0CB0F0;
+}
+
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #0CB0F0;
+}
+
+.nav-item.active .nav-link {
+    color: #0CB0F0;
+}
+
+footer {
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    position: relative;
+}
+
+footer a {
+    margin: 0 10px;
+    color: #0CB0F0;
+}
+
+footer a img {
+    width: 30px;
+    height: 30px;
+}
+
+footer a:hover img {
+    opacity: 0.7;
+}
+
+/* Estilos para a versão mobile */
+@media (max-width: 767px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+}

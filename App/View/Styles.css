@@ -5,6 +5,7 @@
     --azul-claro: #0CB0F0;
     --roxo-claro: #8C0CF0;
     --branco: #FFFFFF;
+    --preto: #000000;
 }
 */
 /* Estilização Geral */
@@ -112,21 +113,24 @@ body{
 }
 
 /* Botão de assinatura */
-.btn-plano {
-    display: inline-block;
-    background-color: #8C0CF0; /* Roxo claro */
+.btn-custom {
+    align-self: center;
+    background: linear-gradient(135deg, #8C0CF0, #6200DB);
     color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 6px 12px rgba(140, 12, 240, 0.5);
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.btn-plano:hover {
-    background-color: #6200DB; /* Roxo escuro */
-    transform: scale(1.1);
+.btn-custom:hover {
+    background: linear-gradient(135deg, #0CB0F0, #002CDB);
+    box-shadow: 0 8px 16px rgba(12, 176, 240, 0.5);
+    color: white;
 }
 
 /* Em CSS/style.css */

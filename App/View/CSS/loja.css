@@ -6,125 +6,83 @@ h1, h2 {
 }
 
 /* Estilo da seção de produtos */
+/* Seção de Produtos */
 .produtos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    
-}
-
-.card-produto {
-    background: rgb(0, 0, 0);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px #8C0CF0;
-    border-color: #0CB0F0;
-    padding: 20px;
-    width: 300px;
+    padding: 2rem;
     text-align: center;
-    
 }
 
-.card-produto h3 {
-    color: #0CB0F0;
+.produtos h1 {
+    font-size: 2.5rem;
+    color: #6200DB;
+    margin-bottom: 2rem;
 }
 
-.card-produto p {
-    color: #FFFFFF;
+/* Container de Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-.card-produto .preco {
-    color: #8C0CF0;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.card-produto .btn-comprar {
-    display: inline-block;
-    background: #0CB0F0;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-top: 10px;
-    box-shadow: 0 4px 8px #8C0CF0;
-    border-color: #0CB0F0;
-    
-}
-
+/* Estilização dos Cards */
 .card {
-    width: 18rem;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #1C1C1C;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-    margin-left: 10%;
-    box-shadow: 0 4px 8px #8C0CF0;
+    background-color: #000000;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-.card-img-top {
+.card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 2px solid #8C0CF0;
+    border-radius: 12px;
 }
 
-.card-body {
-    padding: 20px;
-    background-color: #333333;
-    border-radius: 0 0 10px 10px;
+.card h3 {
+    color: #6200DB;
+    font-size: 1.3rem;
+    margin-top: 0.8rem;
 }
 
-.card-title {
-    font-size: 1.25rem;
+.card p {
+    color: #ffffff;
+    margin: 0.5rem 0;
+}
+
+.preco {
+    font-size: 1.1rem;
     font-weight: bold;
     color: #0CB0F0;
-    margin-bottom: 15px;
 }
-
-.card-text {
-    font-size: 1rem;
-    color: #E0E0E0;
-    margin-bottom: 15px;
-}
-
-/* Para colocar 3 cards lado a lado */
-.card-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
 
 .btn-comprar {
-    background-color: #8C0CF0;
+    align-self: center;
+    background: linear-gradient(135deg, #8C0CF0, #6200DB);
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 6px 12px rgba(140, 12, 240, 0.5);
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 .btn-comprar:hover {
-    background-color: #0CB0F0;
-}
-
-.btn-comprar:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(100, 100, 255, 0.5);
+    background: linear-gradient(135deg, #0CB0F0, #002CDB);
+    box-shadow: 0 8px 16px rgba(12, 176, 240, 0.5);
+    color: white;
 }
 
 

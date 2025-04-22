@@ -4,24 +4,25 @@ require_once '../DAO/UserDAO.php';
 
 class UserController {
 
-    private $userDAO;
+    
 
-    public function __construct() {
+    public static function ($nomeuser, $cpf, $email, $telefone, $dataNascimento, $genero, $endereço, $cidade, $estado, $cep, $senha) {
         $this->userDAO = new UserDAO();
     }
 
-    public function cadastrar($dados) {
-        // Validação básica: confere se e-mail e senha coincidem
-        if ($dados['email'] !== $dados['confEmail'] || $dados['senha'] !== $dados['confSenha']) {
+    public function cadastraruser($dados) {
+        // Validação: confere se e-mail e senha coincidem com a confirmação
+        echo $dados['email']."      ".$dados['senha'];
+        if (!($dados['email']) || !($dados['senha'])) {
+            
             return ['erro' => 'E-mail ou senha não conferem com a confirmação.'];
         }
-
+    
         $user = new UserModel(
             null,
             $dados['nomeuser'],
             $dados['cpf'],
             $dados['email'],
-            $dados['confEmail'],
             $dados['telefone'],
             $dados['dataNascimento'],
             $dados['genero'],
@@ -29,12 +30,12 @@ class UserController {
             $dados['cidade'],
             $dados['estado'],
             $dados['cep'],
-            $dados['senha'],
-            $dados['confSenha']
+            $dados['senha']
         );
-
+    
         return $this->userDAO->cadastrarUser($user);
     }
+    
 
     public function atualizar($dados) {
         if ($dados['email'] !== $dados['confEmail'] || $dados['senha'] !== $dados['confSenha']) {
@@ -46,7 +47,6 @@ class UserController {
             $dados['nomeuser'],
             $dados['cpf'],
             $dados['email'],
-            $dados['confEmail'],
             $dados['telefone'],
             $dados['dataNascimento'],
             $dados['genero'],
@@ -55,7 +55,6 @@ class UserController {
             $dados['estado'],
             $dados['cep'],
             $dados['senha'],
-            $dados['confSenha']
         );
 
         return $this->userDAO->alterarUser($user);

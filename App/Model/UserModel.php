@@ -31,83 +31,83 @@
             $this -> cep = $cep;
             $this -> senha = $senha;
         }
-        public function getIdUser(){
+        public function getduser(){
             return $this -> iduser;
         }
-        public function getNomeUser(){
+        public function getnomeuser(){
             return $this -> nomeuser;
         }
-        public function setNomeUser($nomeuser){
+        public function setnomeuser($nomeuser){
             $this -> nomeuser = $nomeuser;
             return $this;
         }
-        public function getCPF(){
+        public function getcpf(){
             return $this -> cpf;
         }
-        public function setCPF($cpf){
+        public function setcpf($cpf){
             $this -> cpf = $cpf;
             return $this;
         }
-        public function getEmail(){
+        public function getemail(){
             return $this -> email;
         }
-        public function setEmail($email){
+        public function setemail($email){
             $this -> email = $email;
             return $this;
         }
-        public function getTelefone(){
+        public function gettelefone(){
             return $this -> telefone;
         }
-        public function setTelefone($telefone){
+        public function settelefone($telefone){
             $this -> telefone = $telefone;
             return $this;
         }
-        public function getDataNascimento(){
+        public function getdataNascimento(){
             return $this -> dataNascimento;
         }
-        public function setDataNascimento($dataNascimento){
+        public function setdataNascimento($dataNascimento){
             $this -> dataNascimento = $dataNascimento;
             return $this;
         }
-        public function getGenero(){
+        public function getgenero(){
             return $this -> genero;
         }
-        public function setGenero($genero){
+        public function setgenero($genero){
             $this -> genero = $genero;
             return $this;
         }
-        public function getEndereco(){
+        public function getendereco(){
             return $this -> endereco;
         }
-        public function setEndereco($endereco){
+        public function setendereco($endereco){
             $this -> endereco = $endereco;
             return $this;
         }
-        public function getCidade(){
+        public function getcidade(){
             return $this -> cidade;
         }
-        public function setCidade($cidade){
+        public function setcidade($cidade){
             $this -> cidade = $cidade;
             return $this;
         }
-        public function getEstado(){
+        public function getestado(){
             return $this -> estado;
         }
-        public function setEstado($estado){
+        public function setestado($estado){
             $this -> estado = $estado;
             return $this;
         }
-        public function getCEP(){
+        public function getcep(){
             return $this -> cep;
         }
-        public function setCEP($cep){
+        public function setcep($cep){
             $this -> cep = $cep;
             return $this;
         }
-        public function getSenha(){
+        public function getsenha(){
             return $this -> senha;
         }
-        public function setSenha($senha){
+        public function setsenha($senha){
             $this -> senha = $senha;
             return $this;
         }

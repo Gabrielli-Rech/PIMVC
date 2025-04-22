@@ -1,39 +1,41 @@
 <?php
-require_once '../db/Conexao.php'; // Ajuste o caminho conforme sua estrutura
+
 class UserDAO {
-
-    private $conn;
-
-    public function __construct() {
-        $this->conn = Conexao::getConexao(); // Método estático que retorna PDO
-    }
-
-    public function cadastrarUser(UserModel $user) {
-        try {
-            $sql = "INSERT INTO users 
+    public function cadastrarUser(UserModel $user)
+    {
+        include_once 'Conexao.php';
+        $conexao = new Conexao();
+        $conn = $conexao->fazConexao(); // supondo que retorna PDO
+    
+        $sql = "INSERT INTO user
                 (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([
-                $user->getNomeUser(),
-                $user->getCPF(),
-                $user->getEmail(),
-                $user->getTelefone(),
-                $user->getDataNascimento(),
-                $user->getGenero(),
-                $user->getEndereco(),
-                $user->getCidade(),
-                $user->getEstado(),
-                $user->getCEP(),
-                password_hash($user->getSenha(), PASSWORD_DEFAULT)
-            ]);
-
-            return true;
-        } catch (PDOException $e) {
-            echo "Erro ao cadastrar: " . $e->getMessage();
-            return false;
+                VALUES (:nome, :cpf, :email, :telefone, :dataNascimento, :genero, :endereco, :cidade, :estado, :cep, :senha)";
+        
+        $stmt = $conn->prepare($sql);
+    
+        $senhaHash = password_hash($aluno->getSenha(), PASSWORD_DEFAULT);
+    
+        $stmt->bindValue(':nome', $aluno->getNomeuser());
+        $stmt->bindValue(':cpf', $aluno->getCpf());
+        $stmt->bindValue(':email', $aluno->getEmail());
+        $stmt->bindValue(':telefone', $aluno->getTelefone());
+        $stmt->bindValue(':dataNascimento', $aluno->getDataNascimento());
+        $stmt->bindValue(':genero', $aluno->getGenero());
+        $stmt->bindValue(':endereco', $aluno->getEndereco());
+        $stmt->bindValue(':cidade', $aluno->getCidade());
+        $stmt->bindValue(':estado', $aluno->getEstado());
+        $stmt->bindValue(':cep', $aluno->getCep());
+        $stmt->bindValue(':senha', $senhaHash);
+    
+        $res = $stmt->execute();
+    
+        if ($res) {
+            echo "<script>alert('Cadastro realizado com sucesso');</script>";
+        } else {
+            echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
         }
+    
+        echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 
     public function alterarUser(UserModel $user) {
@@ -45,18 +47,19 @@ class UserDAO {
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                $user->getNomeUser(),
-                $user->getCPF(),
-                $user->getEmail(),
-                $user->getTelefone(),
-                $user->getDataNascimento(),
-                $user->getGenero(),
-                $user->getEndereco(),
-                $user->getCidade(),
-                $user->getEstado(),
-                $user->getCEP(),
-                password_hash($user->getSenha(), PASSWORD_DEFAULT),
-                $user->getIdUser()
+                $user->getiduser(),
+                $user->getnomeuser(),
+                $user->getcpf(),
+                $user->getemail(),
+                $user->gettelefone(),
+                $user->getdataNascimento(),
+                $user->getgenero(),
+                $user->getendereco(),
+                $user->getcidade(),
+                $user->getestado(),
+                $user->getcep(),
+                password_hash($user->getsenha(), PASSWORD_DEFAULT)
+                
             ]);
 
             return true;

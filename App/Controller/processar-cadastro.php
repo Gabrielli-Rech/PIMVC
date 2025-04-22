@@ -4,7 +4,7 @@ require_once '../Controller/UserController.php';
 $controller = new UserController();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $resultado = $controller->cadastrar($_POST);
+    $resultado = $controller->cadastraruser($_POST);
 
     if (is_array($resultado) && isset($resultado['erro'])) {
         echo "Erro: " . $resultado['erro'];

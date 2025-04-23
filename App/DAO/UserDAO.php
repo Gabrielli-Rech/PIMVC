@@ -1,40 +1,40 @@
 <?php
 
 class UserDAO {
-    public function cadastrarUser(UserModel $user)
-    {
+    public function cadastrarUser(UserModel $user) {
         include_once 'Conexao.php';
         $conexao = new Conexao();
-        $conn = $conexao->fazConexao(); // supondo que retorna PDO
+        $conn = $conexao->fazConexao();
     
-        $sql = "INSERT INTO user
-                (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
-                VALUES (:nome, :cpf, :email, :telefone, :dataNascimento, :genero, :endereco, :cidade, :estado, :cep, :senha)";
-        
+        $sql = "INSERT INTO user (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
+                VALUES (:nomeuser, :cpf, :email, :telefone, :dataNascimento, :genero, :endereco, :cidade, :estado, :cep, :senha)";
+    
         $stmt = $conn->prepare($sql);
     
-        $senhaHash = password_hash($aluno->getSenha(), PASSWORD_DEFAULT);
+        $senhaHash = password_hash($user->getSenha(), PASSWORD_DEFAULT);
     
-        $stmt->bindValue(':nome', $aluno->getNomeuser());
-        $stmt->bindValue(':cpf', $aluno->getCpf());
-        $stmt->bindValue(':email', $aluno->getEmail());
-        $stmt->bindValue(':telefone', $aluno->getTelefone());
-        $stmt->bindValue(':dataNascimento', $aluno->getDataNascimento());
-        $stmt->bindValue(':genero', $aluno->getGenero());
-        $stmt->bindValue(':endereco', $aluno->getEndereco());
-        $stmt->bindValue(':cidade', $aluno->getCidade());
-        $stmt->bindValue(':estado', $aluno->getEstado());
-        $stmt->bindValue(':cep', $aluno->getCep());
+        $stmt->bindValue(':nomeuser', $user->getNomeuser());
+        $stmt->bindValue(':cpf', $user->getCpf());
+        $stmt->bindValue(':email', $user->getEmail());
+        $stmt->bindValue(':telefone', $user->getTelefone());
+        $stmt->bindValue(':dataNascimento', $user->getDataNascimento());
+        $stmt->bindValue(':genero', $user->getGenero());
+        $stmt->bindValue(':endereco', $user->getEndereco());
+        $stmt->bindValue(':cidade', $user->getCidade());
+        $stmt->bindValue(':estado', $user->getEstado());
+        $stmt->bindValue(':cep', $user->getCep());
         $stmt->bindValue(':senha', $senhaHash);
-    
+        
         $res = $stmt->execute();
-    
-        if ($res) {
-            echo "<script>alert('Cadastro realizado com sucesso');</script>";
-        } else {
-            echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
+      
+        if($res)
+        {
+            echo "<script>alert('Cadastro Realizado com sucesso');</script>";
         }
-    
+        else
+            {
+                echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
+            }
         echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 

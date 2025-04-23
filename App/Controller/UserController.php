@@ -6,18 +6,7 @@ class UserController {
 
     
 
-    public static function ($nomeuser, $cpf, $email, $telefone, $dataNascimento, $genero, $endereço, $cidade, $estado, $cep, $senha) {
-        $this->userDAO = new UserDAO();
-    }
-
     public function cadastraruser($dados) {
-        // Validação: confere se e-mail e senha coincidem com a confirmação
-        echo $dados['email']."      ".$dados['senha'];
-        if (!($dados['email']) || !($dados['senha'])) {
-            
-            return ['erro' => 'E-mail ou senha não conferem com a confirmação.'];
-        }
-    
         $user = new UserModel(
             null,
             $dados['nomeuser'],
@@ -33,14 +22,13 @@ class UserController {
             $dados['senha']
         );
     
-        return $this->userDAO->cadastrarUser($user);
+        $dao = new UserDAO();
+        return $dao->cadastrarUser($user);
     }
     
 
     public function atualizar($dados) {
-        if ($dados['email'] !== $dados['confEmail'] || $dados['senha'] !== $dados['confSenha']) {
-            return ['erro' => 'E-mail ou senha não conferem com a confirmação.'];
-        }
+      
 
         $user = new UserModel(
             $dados['iduser'],

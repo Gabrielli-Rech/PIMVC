@@ -16,8 +16,8 @@
         private $senha;
 
         //Construtor
-        public function __construct($iduser, $nomeuser, $cpf, $email, $confEmail, $telefone, 
-        $dataNascimeto, $genero, $endereco, $cidade, $estado, $cep, $senha, $confSenha){
+        public function __construct($iduser, $nomeuser, $cpf, $email, $telefone, 
+        $dataNascimeto, $genero, $endereco, $cidade, $estado, $cep, $senha){
             $this -> iduser = $iduser;
             $this -> nomeuser = $nomeuser;
             $this -> cpf = $cpf;

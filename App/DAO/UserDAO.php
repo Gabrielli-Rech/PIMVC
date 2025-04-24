@@ -12,7 +12,7 @@ class UserDAO {
     }
 
     public function cadastrarUser(UserModel $user) {
-        try {
+        
             $sql = "INSERT INTO user
                 (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
                 VALUES 
@@ -33,14 +33,16 @@ class UserDAO {
             $stmt->bindValue(':estado', $user->getEstado());
             $stmt->bindValue(':cep', $user->getCep());
             $stmt->bindValue(':senha', $senhaHash);
-
-            $stmt->execute();
-
-            echo "<script>alert('Cadastro realizado com sucesso');</script>";
-            echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
-        } catch (PDOException $e) {
-            echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
-        }
+            $res = $stmt->execute();
+            if($res)
+                {
+                    echo "<script>alert('Cadastro Realizado com sucesso');</script>";
+                }
+                else
+                    {
+                        echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
+                    }
+                echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 
     public function alterarUser(UserModel $user) {

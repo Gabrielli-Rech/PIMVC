@@ -1,39 +1,45 @@
 <?php
 session_start();
-require 'config.php';
+require 'config.php'; // aqui deve estar sua conexão $pdo
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $nomeuser = $_POST['nomeuser'];
     $cpf = $_POST['cpf'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
-    $data_nascimento = $_POST['$data_nascimento'];
+    $data_nascimento = $_POST['dataNascimento'];
     $genero = $_POST['genero'];
     $endereco = $_POST['endereco'];
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
     $cep = $_POST['cep'];
     $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
 
-    if ($password !== $password_confirm) {
-        $error = "As senhas não coincidem.";
+
+    // Verificar se CPF já existe
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE cpf = ?");
+    $stmt->execute([$cpf]);
+    if ($stmt->fetchColumn() > 0) {
+        echo "CPF já cadastrado.";
+        exit;
+    }
+
+    // Inserção no banco
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $pdo->prepare("INSERT INTO user
+        (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, password) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $res = $stmt->execute([
+        $nomeuser, $cpf, $email, $telefone, $data_nascimento, $genero,
+        $endereco, $cidade, $estado, $cep, $hashed_password
+    ]);
+
+    if ($res) {
+        echo "Cadastro realizado com sucesso!";
+        // Você pode redirecionar aqui com header('Location: login.php'); 
     } else {
-        // Verifica se o nome de usuário já existe
-        $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
-        $stmt->execute([$username]);
-        if ($stmt->fetchColumn() > 0) {
-            $error = "Nome de usuário já existe.";
-        } else {
-            // Insere o novo usuário no banco de dados
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-            $stmt = $pdo->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-            if ($stmt->execute([$username, $hashed_password])) {
-                $success = "Usuário registrado com sucesso. Você pode fazer login agora.";
-            } else {
-                $error = "Erro ao registrar o usuário. Tente novamente.";
-            }
-        }
+        echo "Erro ao cadastrar o usuário.";
     }
 }
 ?>

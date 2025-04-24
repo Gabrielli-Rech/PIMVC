@@ -3,11 +3,11 @@ session_start();
 require 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $username = $_POST['nomeuser'];
     $password = $_POST['password'];
 
     // Consulta ao banco de dados para verificar o usuário
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt = $pdo->prepare("SELECT * FROM user WHERE nomeuser = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 

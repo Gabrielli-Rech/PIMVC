@@ -1,65 +1,70 @@
 <?php
 
+require_once 'Conexao.php';
+require_once __DIR__ . '/../Model/UserModel.php';
+
 class UserDAO {
-    public function cadastrarUser(UserModel $user) {
-        include_once 'Conexao.php';
+    private $conn;
+
+    public function __construct() {
         $conexao = new Conexao();
-        $conn = $conexao->fazConexao();
-    
-        $sql = "INSERT INTO user (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
-                VALUES (:nomeuser, :cpf, :email, :telefone, :dataNascimento, :genero, :endereco, :cidade, :estado, :cep, :senha)";
-    
-        $stmt = $conn->prepare($sql);
-    
-        $senhaHash = password_hash($user->getSenha(), PASSWORD_DEFAULT);
-    
-        $stmt->bindValue(':nomeuser', $user->getNomeuser());
-        $stmt->bindValue(':cpf', $user->getCpf());
-        $stmt->bindValue(':email', $user->getEmail());
-        $stmt->bindValue(':telefone', $user->getTelefone());
-        $stmt->bindValue(':dataNascimento', $user->getDataNascimento());
-        $stmt->bindValue(':genero', $user->getGenero());
-        $stmt->bindValue(':endereco', $user->getEndereco());
-        $stmt->bindValue(':cidade', $user->getCidade());
-        $stmt->bindValue(':estado', $user->getEstado());
-        $stmt->bindValue(':cep', $user->getCep());
-        $stmt->bindValue(':senha', $senhaHash);
-        
-        $res = $stmt->execute();
-      
-        if($res)
-        {
-            echo "<script>alert('Cadastro Realizado com sucesso');</script>";
+        $this->conn = $conexao->fazConexao();
+    }
+
+    public function cadastrarUser(UserModel $user) {
+        try {
+            $sql = "INSERT INTO user
+                (nomeuser, cpf, email, telefone, dataNascimento, genero, endereco, cidade, estado, cep, senha) 
+                VALUES 
+                (:nomeuser, :cpf, :email, :telefone, :dataNascimento, :genero, :endereco, :cidade, :estado, :cep, :senha)";
+            
+            $stmt = $this->conn->prepare($sql);
+
+            $senhaHash = password_hash($user->getSenha(), PASSWORD_DEFAULT);
+
+            $stmt->bindValue(':nomeuser', $user->getNomeuser());
+            $stmt->bindValue(':cpf', $user->getCpf());
+            $stmt->bindValue(':email', $user->getEmail());
+            $stmt->bindValue(':telefone', $user->getTelefone());
+            $stmt->bindValue(':dataNascimento', $user->getDataNascimento());
+            $stmt->bindValue(':genero', $user->getGenero());
+            $stmt->bindValue(':endereco', $user->getEndereco());
+            $stmt->bindValue(':cidade', $user->getCidade());
+            $stmt->bindValue(':estado', $user->getEstado());
+            $stmt->bindValue(':cep', $user->getCep());
+            $stmt->bindValue(':senha', $senhaHash);
+
+            $stmt->execute();
+
+            echo "<script>alert('Cadastro realizado com sucesso');</script>";
+            echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
+        } catch (PDOException $e) {
+            echo "<script>alert('Erro: " . $e->getMessage() . "');</script>";
         }
-        else
-            {
-                echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
-            }
-        echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 
     public function alterarUser(UserModel $user) {
         try {
             $sql = "UPDATE users SET 
                 nomeuser = ?, cpf = ?, email = ?, telefone = ?, dataNascimento = ?, genero = ?, 
-                endereco = ?, cidade = ?, estado = ?, cep = ?, senha = ? 
+                endereco = ?, cidade = ?, estado = ?, cep = ?, senha = ?
                 WHERE iduser = ?";
 
             $stmt = $this->conn->prepare($sql);
+
             $stmt->execute([
-                $user->getiduser(),
-                $user->getnomeuser(),
-                $user->getcpf(),
-                $user->getemail(),
-                $user->gettelefone(),
-                $user->getdataNascimento(),
-                $user->getgenero(),
-                $user->getendereco(),
-                $user->getcidade(),
-                $user->getestado(),
-                $user->getcep(),
-                password_hash($user->getsenha(), PASSWORD_DEFAULT)
-                
+                $user->getNomeuser(),
+                $user->getCpf(),
+                $user->getEmail(),
+                $user->getTelefone(),
+                $user->getDataNascimento(),
+                $user->getGenero(),
+                $user->getEndereco(),
+                $user->getCidade(),
+                $user->getEstado(),
+                $user->getCep(),
+                password_hash($user->getSenha(), PASSWORD_DEFAULT),
+                $user->getIduser()
             ]);
 
             return true;
